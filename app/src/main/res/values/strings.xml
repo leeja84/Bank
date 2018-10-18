@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Bank</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="account">account : </string>
+    <string name="balance">balance : </string>
+    <string name="id">id : </string>
+    <string name="amount">amount : </string>
+    <string name="description">description : </string>
+    <string name="date">date : </string>
+    <string name="other_account">other_account : </string>
+    <string name="before_balance">before_balance : </string>
+    <string name="after_balance">after_balance : </string>
+</resources>
