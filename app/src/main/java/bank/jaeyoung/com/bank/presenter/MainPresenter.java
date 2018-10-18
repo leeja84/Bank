@@ -41,18 +41,19 @@ public class MainPresenter implements MainContract.Presenter {
 					try {
 						view.hideProgress();
 						if (result == null) {
+							Log.d("MainPresenter","onPostExecute - Error Loading");
 							System.out.println("Error Loading");
 						} else {
 							view.refreshData(result);
 						}
 					} catch (NullPointerException e) {
-						Log.e("MainPresenter","onPostExecute - Null Point Exception");
+						Log.e("MainPresenter","onPostExecute - NullPointerException");
 						e.printStackTrace();
 					}
 				}
 			}.execute();
 		} catch (Exception e) {
-			Log.e("MainPresenter","loadData - Null Point Exception");
+			Log.e("MainPresenter","loadData - Exception");
 			e.printStackTrace();
 		}
 	}

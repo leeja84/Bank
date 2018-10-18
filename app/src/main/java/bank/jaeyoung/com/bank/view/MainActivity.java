@@ -114,6 +114,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
 	@Override protected void onDestroy() {
 		super.onDestroy();
-		finish();
+		if (detailDialog != null && detailDialog.isShowing()) {
+			detailDialog.dismiss();
+		}
 	}
 }
