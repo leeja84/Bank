@@ -1,7 +1,7 @@
 package bank.jaeyoung.com.bank;
 
 
-import bank.jaeyoung.com.bank.Model.DetailTransaction;
+import bank.jaeyoung.com.bank.data.DetailTransaction;
 
 import java.util.Comparator;
 

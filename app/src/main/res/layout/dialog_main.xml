@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <LinearLayout
+            android:layout_width="@dimen/dialog_width"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dialog_margin"
+            android:background="@drawable/rectangle"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_dialog_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_black"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:textSize="@dimen/id_text"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+              android:background="@color/color_black"/>
+
+        <TextView
+                android:id="@+id/tv_dialog_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_black"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:textSize="@dimen/dialog_normal_text"/>
+
+
+        <TextView
+                android:id="@+id/tv_dialog_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/dialog_normal_text"/>
+
+
+        <TextView
+                android:id="@+id/tv_dialog_other_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_black"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:textSize="@dimen/dialog_normal_text"/>
+
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/color_black"
+              android:layout_marginTop="10dp"
+              android:layout_marginBottom="10dp"/>
+
+
+        <TextView
+                android:id="@+id/tv_dialog_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:gravity="right"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/amount_text"/>
+
+
+        <TextView
+                android:id="@+id/tv_dialog_before"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/balance_type_text"/>
+
+
+        <TextView
+                android:id="@+id/tv_dialog_after"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_margin="@dimen/dialog_text_margin"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/balance_type_text"/>
+
+        <Button
+                android:id="@+id/btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:padding="20dp"
+                android:background="@drawable/rectangle"
+                android:textSize="@dimen/dialog_normal_text"
+                android:text="@string/ok"/>
+
+    </LinearLayout>
+
+</LinearLayout>

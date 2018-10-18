@@ -1,4 +1,4 @@
-package bank.jaeyoung.com.bank.Model;
+package bank.jaeyoung.com.bank.data;
 
 /**
  * Created by jaeyoung lee on 2018. 10. 17..
@@ -9,13 +9,18 @@ public class DetailTransaction {
 	private String description;
 	private String otherAccount;
 	private String date;
+	private String beforeBalance;
+	private String afterBalance;
 
-	public DetailTransaction(String id, String amount, String description, String otherAccount, String date) {
+	public DetailTransaction(String id, String amount, String description, String otherAccount, String date,
+		String beforeBalance, String afterBalance) {
 		this.id = id;
 		this.amount = amount;
 		this.description = description;
 		this.otherAccount = otherAccount;
 		this.date = date;
+		this.beforeBalance = beforeBalance;
+		this.afterBalance = afterBalance;
 	}
 
 	public String getId() {
@@ -30,8 +35,8 @@ public class DetailTransaction {
 		return amount;
 	}
 
-	public void setAmount(String account) {
-		this.amount = account;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
 	public String getDescription() {
@@ -56,5 +61,21 @@ public class DetailTransaction {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	public String getBeforeBalance() {
+		return beforeBalance;
+	}
+
+	public void setBeforeBalance(String beforeBalance) {
+		this.beforeBalance = beforeBalance;
+	}
+
+	public String getAfterBalance() {
+		return afterBalance;
+	}
+
+	public void setAfterBalance(String afterBalance) {
+		this.afterBalance = afterBalance;
 	}
 }

@@ -1,4 +1,4 @@
-package bank.jaeyoung.com.bank.Model;
+package bank.jaeyoung.com.bank.data;
 
 import java.util.List;
 
