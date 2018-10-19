@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 import bank.jaeyoung.com.bank.DetailDialog;
 import bank.jaeyoung.com.bank.MainContract;
 import bank.jaeyoung.com.bank.R;
@@ -110,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 		tvAccount.setText(getString(R.string.account) + transactionData.getAccount());
 		tvBalance.setText(getString(R.string.balance) + transactionData.getBalance());
 		adapter.setDatas(transactionData);
+	}
+
+	@Override public void showToast(Toast toast) {
+		toast.show();
 	}
 
 	@Override protected void onDestroy() {

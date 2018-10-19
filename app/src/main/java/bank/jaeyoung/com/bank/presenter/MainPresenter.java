@@ -3,7 +3,9 @@ package bank.jaeyoung.com.bank.presenter;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 import bank.jaeyoung.com.bank.MainContract;
+import bank.jaeyoung.com.bank.R;
 import bank.jaeyoung.com.bank.data.TransactionData;
 
 /**
@@ -41,8 +43,7 @@ public class MainPresenter implements MainContract.Presenter {
 					try {
 						view.hideProgress();
 						if (result == null) {
-							Log.d("MainPresenter","onPostExecute - Error Loading");
-							System.out.println("Error Loading");
+							view.showToast(makeToast(getContext().getString(R.string.file_error)));
 						} else {
 							view.refreshData(result);
 						}
@@ -56,6 +57,10 @@ public class MainPresenter implements MainContract.Presenter {
 			Log.e("MainPresenter","loadData - Exception");
 			e.printStackTrace();
 		}
+	}
+
+	private Toast makeToast(String message){
+		return Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
 	}
 
 	@Override public Context getContext() {

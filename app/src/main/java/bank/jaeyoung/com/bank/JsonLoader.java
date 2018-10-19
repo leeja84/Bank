@@ -29,6 +29,9 @@ public class JsonLoader {
 
 	//using Scanner, StringBuilder for getting resource
 	public static TransactionData getLoadTransation(Resources resources, int resource) {
+		if(resource <= 0){
+			return null;
+		}
 		InputStream inputStream = resources.openRawResource(resource);
 
 		Scanner scanner = new Scanner(inputStream);

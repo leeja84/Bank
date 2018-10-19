@@ -27,6 +27,10 @@ public class MainModel implements MainContract.Model {
 		Resources resources = presenter.getContext().getResources();
 		transactionData = JsonLoader.getLoadTransation(resources, rawFile);
 
+		if (transactionData == null) {
+			return null;
+		}
+
 		//do daily trasaction descending sorting
 		DescendingSort descendingSort = new DescendingSort();
 		Collections.sort(transactionData.getDetailTransactions(), descendingSort);

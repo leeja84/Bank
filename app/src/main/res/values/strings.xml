@@ -16,4 +16,6 @@
     <string name="detail">Detail</string>
 
     <string name="ok">OK</string>
+
+    <string name="file_error">file error!! please check file again.</string>
 </resources>
