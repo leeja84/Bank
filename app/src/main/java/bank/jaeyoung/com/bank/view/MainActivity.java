@@ -16,6 +16,8 @@ import bank.jaeyoung.com.bank.data.DetailTransaction;
 import bank.jaeyoung.com.bank.data.TransactionData;
 import bank.jaeyoung.com.bank.model.MainModel;
 import bank.jaeyoung.com.bank.presenter.MainPresenter;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import java.util.List;
 
@@ -23,14 +25,12 @@ import java.util.List;
  * Created by jaeyoung lee on 2018. 10. 17..
  */
 public class MainActivity extends AppCompatActivity implements MainContract.View {
-	private ProgressBar progressBar;
+	@BindView(R.id.progressbar) ProgressBar progressBar;
+	@BindView(R.id.tv_account) TextView tvAccount;
+	@BindView(R.id.tv_balance) TextView tvBalance;
+	@BindView(R.id.rv_detail_transaction) RecyclerView recyclerView;
 
-	private TextView tvAccount;
-	private TextView tvBalance;
-
-	private RecyclerView recyclerView;
 	private DetailTrasactionAdapter adapter;
-
 	private DetailDialog detailDialog;
 
 	@Override
@@ -50,12 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
 	// initialize views(progress, textviews, recyclerview)
 	private void initView() {
-		progressBar = findViewById(R.id.progressbar);
-
-		tvAccount = findViewById(R.id.tv_account);
-		tvBalance = findViewById(R.id.tv_balance);
-
-		recyclerView = findViewById(R.id.rv_detail_transaction);
+		ButterKnife.bind(this);
 
 		adapter = new DetailTrasactionAdapter();
 		recyclerView.setAdapter(adapter);
@@ -78,19 +73,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 				detailDialog = new DetailDialog(MainActivity.this, transaction.getId(),
 					transaction.getAmount(), transaction.getDescription(),
 					transaction.getOtherAccount(), transaction.getDate(),
-					transaction.getBeforeBalance(), transaction.getAfterBalance(),
-					clickListener);
+					transaction.getBeforeBalance(), transaction.getAfterBalance()
+				);
 				detailDialog.show();
 			}
 
 		});
 	}
-
-	private View.OnClickListener clickListener = new View.OnClickListener() {
-		public void onClick(View v) {
-			detailDialog.dismiss();
-		}
-	};
 
 	@Override public Context getContext() {
 		return this;

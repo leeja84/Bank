@@ -4,10 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import org.apache.commons.lang3.math.NumberUtils;
 
 /**
@@ -16,14 +18,14 @@ import org.apache.commons.lang3.math.NumberUtils;
 public class DetailDialog extends Dialog {
 	public static final String PREFIX = "-";
 
-	private TextView tvId;
-	private TextView tvAmount;
-	private TextView tvDescription;
-	private TextView tvOtherAccount;
-	private TextView tvDate;
-	private TextView tvBeforeBalance;
-	private TextView tvAfterBalance;
-	private Button btnOk;
+	@BindView(R.id.tv_dialog_id) TextView tvId;
+	@BindView(R.id.tv_dialog_amount) TextView tvAmount;
+	@BindView(R.id.tv_dialog_description) TextView tvDescription;
+	@BindView(R.id.tv_dialog_other_account) TextView tvOtherAccount;
+	@BindView(R.id.tv_dialog_date) TextView tvDate;
+	@BindView(R.id.tv_dialog_before) TextView tvBeforeBalance;
+	@BindView(R.id.tv_dialog_after) TextView tvAfterBalance;
+	@BindView(R.id.btn_ok) Button btnOk;
 
 	private String id;
 	private String amount;
@@ -33,10 +35,8 @@ public class DetailDialog extends Dialog {
 	private String beforeBalance;
 	private String afterBalance;
 
-	private View.OnClickListener onClickListener;
-
 	public DetailDialog(Context context, String id, String amount, String description, String otherAccount, String date,
-		String beforeBalance, String afterBalance, View.OnClickListener singleListener) {
+		String beforeBalance, String afterBalance) {
 		super(context, android.R.style.Theme_Translucent_NoTitleBar);
 		this.id = id;
 		this.amount = amount;
@@ -45,7 +45,6 @@ public class DetailDialog extends Dialog {
 		this.date = date;
 		this.beforeBalance = beforeBalance;
 		this.afterBalance = afterBalance;
-		this.onClickListener = singleListener;
 	}
 
 	@Override
@@ -82,22 +81,14 @@ public class DetailDialog extends Dialog {
 
 		}
 
-		if (onClickListener != null) {
-			btnOk.setOnClickListener(onClickListener);
-		}
+	}
+
+	@OnClick(R.id.btn_ok) void click() {
+		dismiss();
 	}
 
 
-
 	private void initView() {
-		tvId = findViewById(R.id.tv_dialog_id);
-		tvAmount = findViewById(R.id.tv_dialog_amount);
-		tvDescription = findViewById(R.id.tv_dialog_description);
-		tvOtherAccount = findViewById(R.id.tv_dialog_other_account);
-		tvDate = findViewById(R.id.tv_dialog_date);
-		tvBeforeBalance = findViewById(R.id.tv_dialog_before);
-		tvAfterBalance = findViewById(R.id.tv_dialog_after);
-
-		btnOk = findViewById(R.id.btn_ok);
+		ButterKnife.bind(this);
 	}
 }
